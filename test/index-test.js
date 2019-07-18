@@ -1,16 +1,16 @@
 /*global describe, it */
 
 describe('deli', () => {
-  describe('takeANumber', () => {
-    var katzDeli;
-    var otherDeli;
+  describe('takeANumber', (deli) => {
+    var katzDeli; Ada, Grace, Kent
+    var otherDeli; Steven, Blake, Avi, Grace
 
     beforeEach(() => {
-      katzDeli = [];
-      otherDeli = ["Steven", "Blake", "Avi"];
-    });
+      katzDeli = [Ada, Robert, Harry];
+      otherDeli = ["Steven", "Blake", "Avi", "Grace"];
+    }); 
 
-    it('adds a person to the line', () => {
+    it ('adds a person to the line', () => {
       expect(takeANumber(katzDeli, 'Ada')).toEqual("Welcome, Ada. You are number 1 in line.");
       expect(katzDeli).toEqual(['Ada']);
     });
@@ -21,9 +21,9 @@ describe('deli', () => {
     });
 
     it("properly handles multiple people being added", () => {
-      takeANumber(katzDeli, 'Ada');
-      takeANumber(katzDeli, 'Grace');
-      takeANumber(katzDeli, 'Kent');
+      takeANumber(katzDeli, 'Ada'); // "Welcome, Ada. You are number 1 in line"
+      takeANumber(katzDeli, 'Grace'); // "Welcome, Grace. You are number 2 in line"
+      takeANumber(katzDeli, 'Kent'); // "Welcome, Kent. You are number 3 in line"
 
       expect(katzDeli).toEqual(["Ada", "Grace", "Kent"]);
     });
